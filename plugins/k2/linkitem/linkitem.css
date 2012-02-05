@@ -1,0 +1,17 @@
+.K2CatLinkedItemContainer {background:#eee;color:#666;border:1px solid #ccc;padding:5px;}
+
+	.catLinkedItemView {float:left;width:50%;}
+		.catLinkedItemImage {}
+		.catLinkedItemTitle {}
+		.catLinkedItemIntroText {}
+		.catLinkedItemFullText {}
+		.catLinkedItemReadMore {}
+	
+.K2LinkedItemContainer {background:#eee;color:#666;border:1px solid #ccc;padding:5px;}
+
+	.linkedItemView {float:left;width:50%;}
+		.linkedItemImage {}
+		.linkedItemTitle {}
+		.linkedItemIntroText {}
+		.linkedItemFullText {}
+		.linkedItemReadMore {}
