@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="k2" method="upgrade">
+	<name>plg_k2_linkitem</name>
+	<author>Jiliko.net</author>
+	<creationDate>July 26th, 2011</creationDate>
+	<copyright>Copyright (c) 2011 Jiliko.net</copyright>
+	<authorEmail>o.nolbert@jiliko.net</authorEmail>
+	<authorUrl>www.jiliko.net</authorUrl>
+	<version>1.7.0</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>PLG_K2_LINKITEM_XML_DESCRIPTION</description>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_k2_linkitem.ini</language>
+		<language tag="en-GB">language/en-GB.plg_k2_linkitem.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR.plg_k2_linkitem.ini</language>
+		<language tag="fr-FR">language/fr-FR.plg_k2_linkitem.sys.ini</language>
+	</languages>
+	<files>
+		<filename plugin="linkitem">linkitem.php</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="list" name="loadPluginCss" default="1" label="PLG_K2_LINKITEM_LOAD_PLUGIN_CSS" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="@spacer" type="spacer" default="PLG_K2_LINKITEM_OPTIONS_IN_CATEGORY_VIEW" label="" description=""/>
+				<field type="list" name="catLinkedItem" default="1" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemTitle" default="1" label="PLG_K2_LINKITEM_TITLE" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemTitleAsLink" default="1" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemImage" default="1" label="PLG_K2_LINKITEM_IMAGE" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemImageAsLink" default="1" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemImageSize" default="XSmall" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
+					<option value="XS">XSmall</option>
+					<option value="S">Small</option>
+					<option value="M">Medium</option>
+					<option value="L">Large</option>
+					<option value="XL">XLarge</option>
+				</field>
+				<field type="list" name="catLinkedItemIntroText" default="1" label="PLG_K2_LINKITEM_INTROTEXT" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="text" name="catLinkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="Leave blank to diasble. If you enable this option, all html tags from the text will be cleaned up to make sure the html structure of the site does not brake." />
+				<field type="list" name="catLinkedItemFullText" default="0" label="PLG_K2_LINKITEM_FULLTEXT" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemReadMore" default="1" label="PLG_K2_LINKITEM_READMORE" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="@spacer" type="spacer" default="PLG_K2_LINKITEM_OPTIONS_IN_ITEM_VIEW" label="" description=""/>
+				<field type="list" name="linkedItem" default="1" label="Linked Item" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemTitle" default="1" label="PLG_K2_LINKITEM_TITLE" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemTitleAsLink" default="1" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemImage" default="1" label="PLG_K2_LINKITEM_IMAGE" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemImageAsLink" default="1" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemImageSize" default="XSmall" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
+					<option value="XS">XSmall</option>
+					<option value="S">Small</option>
+					<option value="M">Medium</option>
+					<option value="L">Large</option>
+					<option value="XL">XLarge</option>
+				</field>
+				<field type="list" name="linkedItemIntroText" default="1" label="PLG_K2_LINKITEM_INTROTEXT" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="text" name="linkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
+				<field type="list" name="linkedItemFullText" default="0" label="PLG_K2_LINKITEM_FULLTEXT" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemReadMore" default="1" label="PLG_K2_LINKITEM_READMORE" description="">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+		</fields>
+		<fields group="item-content" addpath="/administrator/components/com_k2/elements/">
+			<fieldset name="basic">
+				<field name="item" type="item" default="" label="PLG_K2_LINKITEM_ADD_ITEMS" description="PLG_K2_LINKITEM_ADD_ITEMS_DESC" />
+		    	<field name="items" type="items" default="" label="PLG_K2_LINKITEM_DRAG_AND_DROP_TO_REORDER_ITEMS" description="PLG_K2_LINKITEM_DRAG_AND_DROP_TO_REORDER_ITEMS_DESC" />
+				<field name="@spacer" type="spacer" default="PLG_K2_LINKITEM_OPTIONS_IN_CATEGORY_VIEW" label="" description=""/>
+				<field type="list" name="catLinkedItem" default="" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemTitle" default="" label="PLG_K2_LINKITEM_TITLE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemTitleAsLink" default="" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemImage" default="" label="PLG_K2_LINKITEM_IMAGE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemImageAsLink" default="" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemImageSize" default="" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="XS">XSmall</option>
+					<option value="S">Small</option>
+					<option value="M">Medium</option>
+					<option value="L">Large</option>
+					<option value="XL">XLarge</option>
+				</field>
+				<field type="list" name="catLinkedItemIntroText" default="" label="PLG_K2_LINKITEM_INTROTEXT" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="text" name="catLinkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
+				<field type="list" name="catLinkedItemFullText" default="" label="PLG_K2_LINKITEM_FULLTEXT" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="catLinkedItemReadMore" default="" label="PLG_K2_LINKITEM_READMORE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="@spacer" type="spacer" default="PLG_K2_LINKITEM_OPTIONS_IN_ITEM_VIEW" label="" description=""/>
+				<field type="list" name="linkedItem" default="" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemTitle" default="" label="PLG_K2_LINKITEM_TITLE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemTitleAsLink" default="1" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemImage" default="" label="PLG_K2_LINKITEM_IMAGE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemImageAsLink" default="" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemImageSize" default="" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="XS">XSmall</option>
+					<option value="S">Small</option>
+					<option value="M">Medium</option>
+					<option value="L">Large</option>
+					<option value="XL">XLarge</option>
+				</field>
+				<field type="list" name="linkedItemIntroText" default="" label="PLG_K2_LINKITEM_INTROTEXT" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="text" name="linkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
+				<field type="list" name="linkedItemFullText" default="" label="PLG_K2_LINKITEM_FULLTEXT" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field type="list" name="linkedItemReadMore" default="" label="PLG_K2_LINKITEM_READMORE" description="">
+					<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

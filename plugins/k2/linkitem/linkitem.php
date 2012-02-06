@@ -2,7 +2,7 @@
 
 /*------------------------------------------------------------------------
 
-# plg_linkitem - Link item plugin for K2
+# plg_k2_linkitem - Link Item plugin for K2
 
 # ------------------------------------------------------------------------
 
@@ -27,20 +27,21 @@ class plgK2LinkItem extends K2Plugin {
 
 	// Some params
 	var $pluginName = 'linkitem';
-	var $pluginNameHumanReadable = 'K2 Link item';
+	var $pluginNameHumanReadable = 'K2 Link Item';
 
 	function plgK2LinkItem(&$subject, $params) {
 		parent::__construct($subject, $params);
 	}
 
 	function onK2BeforeDisplay( & $item, & $params, $limitstart) {
-		global $mainframe;
+		$app = JFactory::getApplication();
 		
 		return '';
 	}
 	
 	function onK2AfterDisplay( & $item, & $params, $limitstart) {
-		global $mainframe;
+
+		$app = JFactory::getApplication();
 
 		jimport('joomla.filesystem.file');
 		
@@ -56,16 +57,14 @@ class plgK2LinkItem extends K2Plugin {
 		$html = '';
 
 		if( $view == 'item' || $view == 'itemlist') {
-			$plugin = & JPluginHelper::getPlugin('k2', 'linkitem');
-			$pluginParams = new JParameter($plugin->params);
 	
-			$pluginItemParams = $objectParams = $this->k2TOJParameter($item->plugins, $this->pluginName);
-			$pluginParams->merge($pluginItemParams);
+			$pluginItemParams = $this->k2TOJParameter($item->plugins, $this->pluginName);
+			$this->params->merge($pluginItemParams);
 			
-			$showLinkedItem = ($view == 'itemlist') ? $pluginParams->get('catLinkedItem',0) : $pluginParams->get('linkedItem',0);
+			$showLinkedItem = ($view == 'itemlist') ? $this->params->get('catLinkedItem',0) : $this->params->get('linkedItem',0);
 			$tmplFile = ($view == 'itemlist') ? 'category' : 'item';
 			
-			$value = $pluginParams->get('items');
+			$value = $this->params->get('items');
 			
 			$current = array();
 			
@@ -88,8 +87,9 @@ class plgK2LinkItem extends K2Plugin {
 				
 				$db->setQuery($query);
 				$linkedItem = $db->loadObject();
+				
 				if($linkedItem)
-				$linkedItems[]=$linkedItem;
+					$linkedItems[]=$linkedItem;
 			}
 			
 			if (count($linkedItems) && $showLinkedItem) {
@@ -98,23 +98,23 @@ class plgK2LinkItem extends K2Plugin {
 
 					switch ($view) {
 						case 'itemlist':
-							if($pluginParams->get('catLinkedItemImage',0)) {
-								if (JFile::exists(JPATH_SITE.DS.'media'.DS.'k2'.DS.'items'.DS.'cache'.DS.md5("Image".$linkedItem->id).'_'.$pluginParams->get('catLinkedItemImageSize').'.jpg'))
-									$linkedItem->image = JURI::root().'media/k2/items/cache/'.md5("Image".$linkedItem->id).'_'.$pluginParams->get('catLinkedItemImageSize').'.jpg';
+							if($this->params->get('catLinkedItemImage',0)) {
+								if (JFile::exists(JPATH_SITE.DS.'media'.DS.'k2'.DS.'items'.DS.'cache'.DS.md5("Image".$linkedItem->id).'_'.$this->params->get('catLinkedItemImageSize').'.jpg'))
+									$linkedItem->image = JURI::root().'media/k2/items/cache/'.md5("Image".$linkedItem->id).'_'.$this->params->get('catLinkedItemImageSize').'.jpg';
 							}
 							
-							if ($pluginParams->get('catLinkedItemIntroTextWordLimit')) {
-								$linkedItem->introtext = K2HelperUtilities::wordLimit($linkedItem->introtext, $pluginParams->get('catLinkedItemIntroTextWordLimit'));
+							if ($this->params->get('catLinkedItemIntroTextWordLimit')) {
+								$linkedItem->introtext = K2HelperUtilities::wordLimit($linkedItem->introtext, $this->params->get('catLinkedItemIntroTextWordLimit'));
 							}
 						break;
 						case 'item':
-							if($pluginParams->get('linkedItemImage',0)) {
-								if (JFile::exists(JPATH_SITE.DS.'media'.DS.'k2'.DS.'items'.DS.'cache'.DS.md5("Image".$linkedItem->id).'_'.$pluginParams->get('linkedItemImageSize').'.jpg'))
-									$linkedItem->image = JURI::root().'media/k2/items/cache/'.md5("Image".$linkedItem->id).'_'.$pluginParams->get('linkedItemImageSize').'.jpg';
+							if($this->params->get('linkedItemImage',0)) {
+								if (JFile::exists(JPATH_SITE.DS.'media'.DS.'k2'.DS.'items'.DS.'cache'.DS.md5("Image".$linkedItem->id).'_'.$this->params->get('linkedItemImageSize').'.jpg'))
+									$linkedItem->image = JURI::root().'media/k2/items/cache/'.md5("Image".$linkedItem->id).'_'.$this->params->get('linkedItemImageSize').'.jpg';
 							}
 
-							if ($pluginParams->get('linkedItemIntroTextWordLimit')) {
-								$linkedItem->introtext = K2HelperUtilities::wordLimit($linkedItem->introtext, $pluginParams->get('linkedItemIntroTextWordLimit'));
+							if ($this->params->get('linkedItemIntroTextWordLimit')) {
+								$linkedItem->introtext = K2HelperUtilities::wordLimit($linkedItem->introtext, $this->params->get('linkedItemIntroTextWordLimit'));
 							}
 						break;
 					}
@@ -131,13 +131,13 @@ class plgK2LinkItem extends K2Plugin {
 				//Load css file
 				$document = &JFactory::getDocument();
 			
-				if($pluginParams->get('loadPluginCss',1) && JFile::exists(dirname(__FILE__).DS.'linkitem'.DS.'linkitem.css'))
-					$document->addStyleSheet(JURI::root().'plugins/k2/linkitem/linkitem.css');
+				if($this->params->get('loadPluginCss',1) && JFile::exists(dirname(__FILE__).DS.'linkitem'.DS.'assets'.DS.'css'.DS.'linkitem.css'))
+					$document->addStyleSheet(JURI::root().'plugins/k2/linkitem/assest/css/linkitem.css');
 								
-				if (JFile::exists(JPATH_SITE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'plg_k2_linkitem'.DS.$tmplFile.'.php'))
-					$defaultFile = JPATH_SITE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'plg_k2_linkitem'.DS.$tmplFile.'.php';
+				if (JFile::exists(JPATH_SITE.DS.'templates'.DS.$app->getTemplate().DS.'html'.DS.'plg_k2_linkitem'.DS.$tmplFile.'.php'))
+					$defaultFile = JPATH_SITE.DS.'templates'.DS.$app->getTemplate().DS.'html'.DS.'plg_k2_linkitem'.DS.$tmplFile.'.php';
 				else
-					$defaultFile = dirname(__FILE__).DS.'linkitem'.DS.$tmplFile.'.php';
+					$defaultFile = dirname(__FILE__).DS.'linkitem'.DS.'tmpl'.DS.$tmplFile.'.php';
 				
 				ob_start();
 				include($defaultFile);
@@ -151,29 +151,28 @@ class plgK2LinkItem extends K2Plugin {
 	}
 
 	function onK2AfterDisplayTitle( & $item, & $params, $limitstart) {
-		global $mainframe;
+		$app = JFactory::getApplication();
 		return '';
 	}
 
 	function onK2BeforeDisplayContent( & $item, & $params, $limitstart) {
-		global $mainframe;
+		$app = JFactory::getApplication();
 		return '';
 	}
 
 	function onK2AfterDisplayContent( & $item, & $params, $limitstart) {
-		global $mainframe;
+		$app = JFactory::getApplication();
 		return '';
 	}
 	
 	function onK2CategoryDisplay( & $category, & $params, $limitstart) {
-		global $mainframe;
+		$app = JFactory::getApplication();
 		
 		return '';
 	}
 
 	function onK2UserDisplay( & $user, & $params, $limitstart) {
-
-		global $mainframe;
+		$app = JFactory::getApplication();
 		
 		return '';
 	}
@@ -197,9 +196,9 @@ class plgK2LinkItem extends K2Plugin {
 	
 	function onRenderAdminForm (& $element, $type, $tab='') {
 
-		$mainframe = &JFactory::getApplication();
+		$app = &JFactory::getApplication();
 		
-		if (!($mainframe->isAdmin())) {
+		if (!($app->isAdmin())) {
 			return null;
 		}
 		
