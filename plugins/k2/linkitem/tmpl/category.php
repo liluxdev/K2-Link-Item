@@ -23,7 +23,7 @@ defined('_JEXEC') or die ('Restricted access');
 <div class="K2CatLinkedItemContainer">
 	<?php foreach($linkedItems as $linkedItem): ?>
 	<div id="linkitem-<?php echo $linkedItem->id; ?>" class="catLinkedItemView">
-		<?php if ($this->params->get('catLinkedItemImage') && $linkedItem->image): ?>
+		<?php if ($this->params->get('catLinkedItemImage') && isset($linkedItem->image)): ?>
 		<div class="catLinkedItemImage">
 			<?php if ($this->params->get('catLinkedItemImageAsLink') && $linkedItem->link): ?>
 			<a href="<?php echo $linkedItem->link; ?>">

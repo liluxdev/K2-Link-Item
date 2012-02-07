@@ -87,7 +87,7 @@ class plgK2LinkItem extends K2Plugin {
 			if(is_array($value))
 				$current=$value;
 
-			$linkItems = array();
+			$linkedItems = array();
 
 			foreach($current as $id){
 
