@@ -2,8 +2,8 @@
 <extension version="1.7" type="plugin" group="k2" method="upgrade">
 	<name>plg_k2_linkitem</name>
 	<author>Jiliko.net</author>
-	<creationDate>July 26th, 2011</creationDate>
-	<copyright>Copyright (c) 2011 Jiliko.net</copyright>
+	<creationDate>January 30th, 2012</creationDate>
+	<copyright>Copyright (c) 2012 Jiliko.net</copyright>
 	<authorEmail>o.nolbert@jiliko.net</authorEmail>
 	<authorUrl>www.jiliko.net</authorUrl>
 	<version>1.7.0</version>
@@ -19,6 +19,7 @@
 		<filename plugin="linkitem">linkitem.php</filename>
 		<filename>index.html</filename>
 		<folder>assets</folder>
+		<folder>elements</folder>
 		<folder>tmpl</folder>
 	</files>
 	<config>
