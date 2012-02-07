@@ -2,7 +2,7 @@
 <extension version="1.7" type="plugin" group="k2" method="upgrade">
 	<name>plg_k2_linkitem</name>
 	<author>Jiliko.net</author>
-	<creationDate>January 30th, 2012</creationDate>
+	<creationDate>February 7th, 2012</creationDate>
 	<copyright>Copyright (c) 2012 Jiliko.net</copyright>
 	<authorEmail>o.nolbert@jiliko.net</authorEmail>
 	<authorUrl>www.jiliko.net</authorUrl>
@@ -26,30 +26,30 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field type="list" name="loadPluginCss" default="1" label="PLG_K2_LINKITEM_LOAD_PLUGIN_CSS" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 			</fieldset>
 			<fieldset name="PLG_K2_LINKITEM_CATEGORY_VIEW_OPTIONS">
 				<field type="list" name="catLinkedItem" default="1" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="catLinkedItemTitle" default="1" label="PLG_K2_LINKITEM_TITLE" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="catLinkedItemTitleAsLink" default="1" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 				<field type="list" name="catLinkedItemImage" default="1" label="PLG_K2_LINKITEM_IMAGE" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="catLinkedItemImageAsLink" default="1" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 				<field type="list" name="catLinkedItemImageSize" default="XSmall" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
 					<option value="XS">XSmall</option>
@@ -59,39 +59,39 @@
 					<option value="XL">XLarge</option>
 				</field>
 				<field type="list" name="catLinkedItemIntroText" default="1" label="PLG_K2_LINKITEM_INTROTEXT" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
-				<field type="text" name="catLinkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="Leave blank to diasble. If you enable this option, all html tags from the text will be cleaned up to make sure the html structure of the site does not brake." />
+				<field type="text" name="catLinkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
 				<field type="list" name="catLinkedItemFullText" default="0" label="PLG_K2_LINKITEM_FULLTEXT" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="catLinkedItemReadMore" default="1" label="PLG_K2_LINKITEM_READMORE" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 			</fieldset>
 			<fieldset name="PLG_K2_LINKITEM_ITEM_VIEW_OPTIONS">
-				<field type="list" name="linkedItem" default="1" label="Linked Item" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+				<field type="list" name="linkedItem" default="1" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="linkedItemTitle" default="1" label="PLG_K2_LINKITEM_TITLE" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="linkedItemTitleAsLink" default="1" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 				<field type="list" name="linkedItemImage" default="1" label="PLG_K2_LINKITEM_IMAGE" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="linkedItemImageAsLink" default="1" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 				</field>
 				<field type="list" name="linkedItemImageSize" default="XSmall" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
 					<option value="XS">XSmall</option>
@@ -101,17 +101,17 @@
 					<option value="XL">XLarge</option>
 				</field>
 				<field type="list" name="linkedItemIntroText" default="1" label="PLG_K2_LINKITEM_INTROTEXT" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="text" name="linkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
 				<field type="list" name="linkedItemFullText" default="0" label="PLG_K2_LINKITEM_FULLTEXT" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 				<field type="list" name="linkedItemReadMore" default="1" label="PLG_K2_LINKITEM_READMORE" description="">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
+					<option value="0">PLG_K2_LINKITEM_HIDE</option>
+					<option value="1">PLG_K2_LINKITEM_SHOW</option>
 				</field>
 			</fieldset>
 		</fields>
@@ -120,28 +120,28 @@
 		<param name="" type="header" default="PLG_K2_LINKITEM_CATEGORY_VIEW_OPTIONS" label="" description=""/>
 		<param type="list" name="catLinkedItem" default="" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemTitle" default="" label="PLG_K2_LINKITEM_TITLE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemTitleAsLink" default="" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="catLinkedItemImage" default="" label="PLG_K2_LINKITEM_IMAGE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemImageAsLink" default="" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="catLinkedItemImageSize" default="" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
@@ -153,45 +153,45 @@
 		</param>
 		<param type="list" name="catLinkedItemIntroText" default="" label="PLG_K2_LINKITEM_INTROTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="text" name="catLinkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
 		<param type="list" name="catLinkedItemFullText" default="" label="PLG_K2_LINKITEM_FULLTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemReadMore" default="" label="PLG_K2_LINKITEM_READMORE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param name="" type="header" default="PLG_K2_LINKITEM_ITEM_VIEW_OPTIONS" label="" description=""/>
 		<param type="list" name="linkedItem" default="" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemTitle" default="" label="PLG_K2_LINKITEM_TITLE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemTitleAsLink" default="" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="linkedItemImage" default="" label="PLG_K2_LINKITEM_IMAGE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemImageAsLink" default="" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="linkedItemImageSize" default="" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
@@ -203,19 +203,19 @@
 		</param>
 		<param type="list" name="linkedItemIntroText" default="" label="PLG_K2_LINKITEM_INTROTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">Yes</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="text" name="linkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
 		<param type="list" name="linkedItemFullText" default="" label="PLG_K2_LINKITEM_FULLTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemReadMore" default="" label="PLG_K2_LINKITEM_READMORE" description="">
 			<option value="">PLG_K2_LINKITEM_USE_GLOBAL</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 	</params>
 	<params group="item-content" addpath="/plugins/k2/linkitem/elements/">
@@ -224,28 +224,28 @@
 		<param name="" type="header" default="PLG_K2_LINKITEM_CATEGORY_VIEW_OPTIONS" label="" description=""/>
 		<param type="list" name="catLinkedItem" default="" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemTitle" default="" label="PLG_K2_LINKITEM_TITLE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemTitleAsLink" default="" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="catLinkedItemImage" default="" label="PLG_K2_LINKITEM_IMAGE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemImageAsLink" default="" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="catLinkedItemImageSize" default="" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
@@ -257,45 +257,45 @@
 		</param>
 		<param type="list" name="catLinkedItemIntroText" default="" label="PLG_K2_LINKITEM_INTROTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">JNO</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="text" name="catLinkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
 		<param type="list" name="catLinkedItemFullText" default="" label="PLG_K2_LINKITEM_FULLTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="catLinkedItemReadMore" default="" label="PLG_K2_LINKITEM_READMORE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param name="" type="header" default="PLG_K2_LINKITEM_ITEM_VIEW_OPTIONS" label="" description=""/>
 		<param type="list" name="linkedItem" default="" label="PLG_K2_LINKITEM_LINKED_ITEM" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemTitle" default="" label="PLG_K2_LINKITEM_TITLE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemTitleAsLink" default="" label="PLG_K2_LINKITEM_TITLE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="linkedItemImage" default="" label="PLG_K2_LINKITEM_IMAGE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemImageAsLink" default="" label="PLG_K2_LINKITEM_IMAGE_AS_LINK" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
 		</param>
 		<param type="list" name="linkedItemImageSize" default="" label="PLG_K2_LINKITEM_IMAGE_SIZE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
@@ -307,19 +307,19 @@
 		</param>
 		<param type="list" name="linkedItemIntroText" default="" label="PLG_K2_LINKITEM_INTROTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="text" name="linkedItemIntroTextWordLimit" size="4" default="" label="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT" description="PLG_K2_LINKITEM_INTROTEXT_WORD_LIMIT_DESC" />
 		<param type="list" name="linkedItemFullText" default="" label="PLG_K2_LINKITEM_FULLTEXT" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 		<param type="list" name="linkedItemReadMore" default="" label="PLG_K2_LINKITEM_READMORE" description="">
 			<option value="">PLG_K2_LINKITEM_INHERIT_FROM_CATEGORY</option>
-			<option value="0">K2_HIDE</option>
-			<option value="1">K2_SHOW</option>
+			<option value="0">PLG_K2_LINKITEM_HIDE</option>
+			<option value="1">PLG_K2_LINKITEM_SHOW</option>
 		</param>
 	</params>
 </extension>

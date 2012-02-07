@@ -42,13 +42,21 @@ class JElementItems extends JElement
 		$js = "
 		var \$K2 = jQuery.noConflict();
 		function jSelectItem(id, title, object) {
+			
 			var exists = false;
+			
 			\$K2('#itemsList input').each(function(){
 					if(\$K2(this).val()==id){
 						alert('".JText::_('K2_THE_SELECTED_ITEM_IS_ALREADY_IN_THE_LIST')."');
 						exists = true;
 					}
 			});
+			
+			if (document.adminForm.id.value && document.adminForm.id.value == id){
+				alert('".JText::_('PLG_K2_LINKITEM_CAN_NOT_LINK_TO_ITSELF')."');
+				exists = true;
+			}
+			
 			if(!exists){
 				var container = \$K2('<li/>').appendTo(\$K2('#itemsList'));
 				var img = \$K2('<img/>',{class:'remove', src:'".$image."'}).appendTo(container);

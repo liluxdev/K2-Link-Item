@@ -30,7 +30,7 @@ class JElementItem extends JElement {
 			$item->load($value);
 		}
 		else {
-			$item->title = JText::_('K2_SELECT_AN_ITEM');
+			$item->title = JText::_('PLG_K2_LINKITEM_SELECT_AN_ITEM');
 		}
 
 		$js = "
@@ -58,7 +58,7 @@ class JElementItem extends JElement {
 		</div>
 		<div class="button2-left">
 			<div class="blank">
-				<a class="modal" title="'.JText::_('K2_SELECT_AN_ITEM').'"  href="'.$link.'" rel="{handler: \'iframe\', size: {x: 700, y: 450}}">'.JText::_('K2_SELECT').'</a>
+				<a class="modal" title="'.JText::_('PLG_K2_LINKITEM_SELECT_AN_ITEM').'"  href="'.$link.'" rel="{handler: \'iframe\', size: {x: 700, y: 450}}">'.JText::_('PLG_K2_LINKITEM_SELECT').'</a>
 			</div>
 		</div>
 		<input type="hidden" id="'.$name.'_id" name="'.$fieldName.'" value="'.( int )$value.'" />
