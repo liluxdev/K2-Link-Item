@@ -22,15 +22,22 @@
 defined('_JEXEC') or die('Restricted access');
 
 JLoader::register('K2Plugin',JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'lib'.DS.'k2plugin.php');
+JTable::addIncludePath(JPATH_COMPONENT.DS.'tables');
 
 class plgK2LinkItem extends K2Plugin {
 
 	// Some params
 	var $pluginName = 'linkitem';
 	var $pluginNameHumanReadable = 'K2 Link Item';
-
+	var $xmlFile = null;
+	
 	function plgK2LinkItem(&$subject, $params) {
 		parent::__construct($subject, $params);
+		
+		$language = JFactory::getLanguage();
+		$language->load('plg_k2_linkitem');
+		
+		$this->xmlFile = JPATH_SITE.DS.'plugins'.DS.'k2'.DS.$this->pluginName.DS.$this->pluginName.'.xml';
 	}
 
 	function onK2BeforeDisplay( & $item, & $params, $limitstart) {
@@ -46,20 +53,26 @@ class plgK2LinkItem extends K2Plugin {
 		jimport('joomla.filesystem.file');
 		
 		$view = JRequest::getCmd('view');
-		$user = & JFactory::getUser();
+		$user = JFactory::getUser();
 		$aid = $user->get('aid');
 		
-		$db = & JFactory::getDBO();
-		$jnow = &JFactory::getDate();
+		$db = JFactory::getDBO();
+		$jnow = JFactory::getDate();
 		$now = $jnow->toMySQL();
 		$nullDate = $db->getNullDate();
 		
 		$html = '';
 
 		if( $view == 'item' || $view == 'itemlist') {
-	
-			$pluginItemParams = $this->k2TOJParameter($item->plugins, $this->pluginName);
-			$this->params->merge($pluginItemParams);
+			/* Merging item category params */
+			$category = &JTable::getInstance('K2Category', 'Table');
+			$category->load($item->catid);
+			$cParams = $this->k2TOJParameter($category->plugins, $this->pluginName);
+			$this->params->merge($cParams);
+			
+			/* Merging item params */
+			$iParams = $this->k2TOJParameter($item->plugins, $this->pluginName);
+			$this->params->merge($iParams);
 			
 			$showLinkedItem = ($view == 'itemlist') ? $this->params->get('catLinkedItem',0) : $this->params->get('linkedItem',0);
 			$tmplFile = ($view == 'itemlist') ? 'category' : 'item';
@@ -80,14 +93,29 @@ class plgK2LinkItem extends K2Plugin {
 
 				$query = "SELECT i.*, c.name AS categoryname,c.id AS categoryid, c.alias AS categoryalias, c.params AS categoryparams";
 				$query .= " FROM #__k2_items as i LEFT JOIN #__k2_categories c ON c.id = i.catid";
-				$query .= " WHERE i.published = 1 AND i.access <= {$aid} AND i.trash = 0 AND c.published = 1 AND c.access <= {$aid} AND c.trash = 0";
+				
+				$query .= " WHERE i.published = 1";
+				
+				$query .= " AND i.access IN(".implode(',', $user->authorisedLevels()).")"
+					." AND i.trash = 0"
+					." AND c.published = 1"
+					." AND c.access IN(".implode(',', $user->authorisedLevels()).")"
+					." AND c.trash = 0";
+										
+					$languageFilter = $app->getLanguageFilter();
+					if($languageFilter) {
+						$languageTag = JFactory::getLanguage()->getTag();
+						$query .= " AND c.language IN (".$db->quote($languageTag).",".$db->quote('*').") 
+						AND i.language IN (".$db->quote($languageTag).",".$db->quote('*').")";
+					}
+					
 				$query .= " AND ( i.publish_up = ".$db->Quote($nullDate)." OR i.publish_up <= ".$db->Quote($now)." )";
 				$query .= " AND ( i.publish_down = ".$db->Quote($nullDate)." OR i.publish_down >= ".$db->Quote($now)." )";
 				$query .= " AND i.id={$id}";
 				
 				$db->setQuery($query);
 				$linkedItem = $db->loadObject();
-				
+
 				if($linkedItem)
 					$linkedItems[]=$linkedItem;
 			}
@@ -131,13 +159,13 @@ class plgK2LinkItem extends K2Plugin {
 				//Load css file
 				$document = &JFactory::getDocument();
 			
-				if($this->params->get('loadPluginCss',1) && JFile::exists(dirname(__FILE__).DS.'linkitem'.DS.'assets'.DS.'css'.DS.'linkitem.css'))
-					$document->addStyleSheet(JURI::root().'plugins/k2/linkitem/assest/css/linkitem.css');
+				if($this->params->get('loadPluginCss',1) && JFile::exists(dirname(__FILE__).DS.'assets'.DS.'css'.DS.'linkitem.css'))
+					$document->addStyleSheet(JURI::root().'plugins/k2/linkitem/assets/css/linkitem.css');
 								
 				if (JFile::exists(JPATH_SITE.DS.'templates'.DS.$app->getTemplate().DS.'html'.DS.'plg_k2_linkitem'.DS.$tmplFile.'.php'))
 					$defaultFile = JPATH_SITE.DS.'templates'.DS.$app->getTemplate().DS.'html'.DS.'plg_k2_linkitem'.DS.$tmplFile.'.php';
 				else
-					$defaultFile = dirname(__FILE__).DS.'linkitem'.DS.'tmpl'.DS.$tmplFile.'.php';
+					$defaultFile = dirname(__FILE__).DS.'tmpl'.DS.$tmplFile.'.php';
 				
 				ob_start();
 				include($defaultFile);
@@ -178,9 +206,9 @@ class plgK2LinkItem extends K2Plugin {
 	}
 	
 	function k2TOJParameter($k2Plugins,$k2Plugin) {
-
+				
 		$k2Registry = new JRegistry();
-		$k2Registry->loadINI($k2Plugins);
+		$k2Registry->loadString($k2Plugins);
 		$k2Array['plugins'] = $k2Registry->toArray();
 
 		$jArray = array();

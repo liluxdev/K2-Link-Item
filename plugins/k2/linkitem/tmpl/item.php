@@ -24,39 +24,39 @@ defined('_JEXEC') or die ('Restricted access');
 <div class="K2LinkedItemContainer">
 	<?php foreach($linkedItems as $linkedItem): ?>
 	<div id="item-linkitem-<?php echo $linkedItem->id; ?>" class="linkedItemView">
-		<?php if ($pluginParams->get('linkedItemImage') && $linkedItem->image): ?>
+		<?php if ($this->params->get('linkedItemImage') && $linkedItem->image): ?>
 		<div class="linkedItemImage">
-			<?php if ($pluginParams->get('linkedItemImageAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('linkedItemImageAsLink') && $linkedItem->link): ?>
 			<a href="<?php echo $linkedItem->link; ?>">
 			<?php endif;?>
 			<img src="<?php echo $linkedItem->image; ?>" />
-			<?php if ($pluginParams->get('linkedItemImageAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('linkedItemImageAsLink') && $linkedItem->link): ?>
 			</a>
 			<?php endif;?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('linkedItemTitle')): ?>
+		<?php if ($this->params->get('linkedItemTitle')): ?>
 		<div class="linkedItemTitle">
-			<?php if ($pluginParams->get('linkedItemTitleAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('linkedItemTitleAsLink') && $linkedItem->link): ?>
 			<a href="<?php echo $linkedItem->link; ?>">
 			<?php endif;?>
 			<?php echo $linkedItem->title; ?>
-			<?php if ($pluginParams->get('linkedItemTitleAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('linkedItemTitleAsLink') && $linkedItem->link): ?>
 			</a>
 			<?php endif;?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('linkedItemIntroText')): ?>
+		<?php if ($this->params->get('linkedItemIntroText')): ?>
 		<div class="linkedItemIntroText">
 			<?php echo $linkedItem->introtext; ?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('linkedItemFullText')): ?>
+		<?php if ($this->params->get('linkedItemFullText')): ?>
 		<div class="linkedItemFullText">
 			<?php echo $linkedItem->fulltext; ?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('linkedItemReadMore') && $linkedItem->link): ?>
+		<?php if ($this->params->get('linkedItemReadMore') && $linkedItem->link): ?>
 		<div class="linkedItemReadMore">
 			<a href="<?php echo $linkedItem->link; ?>"><?php echo JText::_('Read more...'); ?></a>
 		</div>

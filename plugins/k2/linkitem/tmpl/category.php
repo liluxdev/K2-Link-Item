@@ -23,39 +23,39 @@ defined('_JEXEC') or die ('Restricted access');
 <div class="K2CatLinkedItemContainer">
 	<?php foreach($linkedItems as $linkedItem): ?>
 	<div id="linkitem-<?php echo $linkedItem->id; ?>" class="catLinkedItemView">
-		<?php if ($pluginParams->get('catLinkedItemImage') && $linkedItem->image): ?>
+		<?php if ($this->params->get('catLinkedItemImage') && $linkedItem->image): ?>
 		<div class="catLinkedItemImage">
-			<?php if ($pluginParams->get('catLinkedItemImageAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('catLinkedItemImageAsLink') && $linkedItem->link): ?>
 			<a href="<?php echo $linkedItem->link; ?>">
 			<?php endif;?>
 			<img src="<?php echo $linkedItem->image; ?>" />
-			<?php if ($pluginParams->get('catLinkedItemImageAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('catLinkedItemImageAsLink') && $linkedItem->link): ?>
 			</a>
 			<?php endif;?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('catLinkedItemTitle')): ?>
+		<?php if ($this->params->get('catLinkedItemTitle')): ?>
 		<div class="catLinkedItemTitle">
-			<?php if ($pluginParams->get('catLinkedItemTitleAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('catLinkedItemTitleAsLink') && $linkedItem->link): ?>
 			<a href="<?php echo $linkedItem->link; ?>">
 			<?php endif;?>
 			<?php echo $linkedItem->title; ?>
-			<?php if ($pluginParams->get('catLinkedItemTitleAsLink') && $linkedItem->link): ?>
+			<?php if ($this->params->get('catLinkedItemTitleAsLink') && $linkedItem->link): ?>
 			</a>
 			<?php endif;?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('catLinkedItemIntroText')): ?>
+		<?php if ($this->params->get('catLinkedItemIntroText')): ?>
 		<div class="catLinkedItemIntroText">
 			<?php echo $linkedItem->introtext; ?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('catLinkedItemFullText')): ?>
+		<?php if ($this->params->get('catLinkedItemFullText')): ?>
 		<div class="catLinkedItemFullText">
 			<?php echo $linkedItem->fulltext; ?>
 		</div>
 		<?php endif; ?>
-		<?php if ($pluginParams->get('catLinkedItemReadMore') && $linkedItem->link): ?>
+		<?php if ($this->params->get('catLinkedItemReadMore') && $linkedItem->link): ?>
 		<div class="catLinkedItemReadMore">
 			<a href="<?php echo $linkedItem->link; ?>"><?php echo JText::_('Read more...'); ?></a>
 		</div>
