@@ -77,7 +77,7 @@ class plgK2LinkItem extends K2Plugin {
 			$showLinkedItem = ($view == 'itemlist') ? $this->params->get('catLinkedItem',0) : $this->params->get('linkedItem',0);
 			$tmplFile = ($view == 'itemlist') ? 'category' : 'item';
 			
-			$value = $this->params->get('items');
+			$value = $iParams->get('items');
 			
 			$current = array();
 			
