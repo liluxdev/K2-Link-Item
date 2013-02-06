@@ -1,20 +1,11 @@
 <?php
-/**
- * @version		$Id: item.php 1034 2011-10-04 17:00:00Z joomlaworks $
- * @package		K2
- * @author		JoomlaWorks http://www.joomlaworks.gr
- * @copyright	Copyright (c) 2006 - 2011 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
- */
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.html.parameter.element');
+class JElementLIItem extends JElement {
 
-class JElementItem extends JElement {
-
-	var $_name = 'Item';
+	var $_name = 'liitem';
 
 	function fetchElement($name, $value, & $node, $control_name) {
 
